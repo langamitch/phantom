@@ -1,58 +1,91 @@
+// --- Overlay ---
 const talkBtn = document.querySelector(".talk");
 const overlay = document.getElementById("overlay");
 const closeBtn = document.getElementById("closeBtn");
 
+const mainContent = document.getElementById("overlayMain");
+const forms = {
+  work: document.getElementById("form-work"),
+  say: document.getElementById("form-say"),
+  join: document.getElementById("form-join")
+};
+
 talkBtn.addEventListener("click", () => {
   overlay.style.display = "flex";
+  mainContent.style.display = "block";
+  Object.values(forms).forEach(f => f.style.display = "none");
 });
 
 closeBtn.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
-// Optional: Close when clicking outside content
 overlay.addEventListener("click", (e) => {
-  if (e.target === overlay) {
-    overlay.style.display = "none";
+  if (e.target === overlay) overlay.style.display = "none";
+});
+
+// Handle card clicks
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    mainContent.style.display = "none";
+    const formId = card.dataset.form;
+    forms[formId].style.display = "block";
+  });
+});
+
+// Handle back button
+document.querySelectorAll("[data-back]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    Object.values(forms).forEach(f => f.style.display = "none");
+    mainContent.style.display = "block";
+  });
+});
+
+// --- Firebase ---
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Save form data
+async function saveForm(formId, data) {
+  try {
+    await addDoc(collection(db, formId), data);
+    alert("Form submitted successfully!");
+  } catch (err) {
+    console.error("Error adding document: ", err);
+    alert("Error saving data");
   }
-});
-
-
-const menuToggle = document.getElementById("menu-toggle");
-const sidebar = document.getElementById("sidebar");
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
-});
-
-themeToggle.addEventListener("click", () => {
-  if (body.classList.contains("light")) {
-    body.classList.remove("light");
-    body.classList.add("dark");
-  } else {
-    body.classList.remove("dark");
-    body.classList.add("light");
-  }
-});
-
-const cookiesWrapper = document.getElementById("cookiesWrapper");
-const cookiesBox = document.getElementById("cookies");
-const acceptBtn = document.getElementById("acceptCookies");
-
-// Show only if not accepted
-if (!localStorage.getItem("cookiesAccepted")) {
-  setTimeout(() => {
-    cookiesBox.classList.add("show");
-  }, 500);
-} else {
-  cookiesWrapper.style.display = "none";
 }
 
-acceptBtn.addEventListener("click", () => {
-  localStorage.setItem("cookiesAccepted", "true");
-  cookiesWrapper.style.display = "none"; // Hide completely
+// Handle form submissions
+document.getElementById("workForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  saveForm("workRequests", data);
+  e.target.reset();
 });
 
+document.getElementById("sayForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  saveForm("messages", data);
+  e.target.reset();
+});
 
+document.getElementById("joinForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  saveForm("applications", data);
+  e.target.reset();
+});

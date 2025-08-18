@@ -49,14 +49,54 @@
     <h3>Technology Focused And Creatively Driven</h3>
 </div>
 
-  <!-- Overlay -->
-  <div class="overlay" id="overlay">
-    <div class="overlay-content">
-      <span class="close-btn" id="closeBtn">&times;</span>
-      <h2>Let’s Talk</h2>
-      <p>This is your overlay content. You can put a form or message here.</p>
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+  <div class="overlay-content" id="overlayMain">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <h2>Let’s Talk</h2>
+    <div class="card-grid">
+      <div class="card" data-form="work">Work With Us</div>
+      <div class="card" data-form="say">Say Anything</div>
+      <div class="card" data-form="join">Join Team</div>
     </div>
   </div>
+
+  <!-- Work With Us Form -->
+  <div class="overlay-content form-box" id="form-work">
+    <span class="back-btn" data-back>&larr; Back</span>
+    <h2>Work With Us</h2>
+    <form id="workForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="project" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Say Anything Form -->
+  <div class="overlay-content form-box" id="form-say">
+    <span class="back-btn" data-back>&larr; Back</span>
+    <h2>Say Anything</h2>
+    <form id="sayForm">
+      <input type="text" name="name" placeholder="Your Name">
+      <textarea name="message" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Join Team Form -->
+  <div class="overlay-content form-box" id="form-join">
+    <span class="back-btn" data-back>&larr; Back</span>
+    <h2>Join Team</h2>
+    <form id="joinForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="skills" placeholder="Tell us about your skills..." required></textarea>
+      <button type="submit">Apply</button>
+    </form>
+  </div>
+</div>
+
  
   <div class="section">
     <div class="vard">
@@ -182,6 +222,7 @@
     </div>
   </div>
  
-  <script src="index.js"></script>
+
+  <script type="module" src="index.js"></script>
 </body>
 </html>
