@@ -137,7 +137,7 @@ flex-direction: column;
 /* Mobile styles */
 @media (max-width: 768px) {
   .nav-links,
-  .social {
+  .social, .category, .talk {
     display: none;
   }
 
@@ -203,13 +203,26 @@ flex-direction: column;
   
 }
 .vard{
-  max-width: 1200px;
+
   margin:50px 10px;
   padding: 0 10px;
   display: flex;
   gap: 10px;
 }
-
+.category{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.ite{
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #eaeaea;
+  color: #000000;
+  border: #333;
+  border-radius: 80px;
+}
 
 .year {
   flex: 1;
