@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+ 
+</head>
+<body class="light">
+  <nav>
+    <div class="logo"><img src="assets/H4.svg" alt=""></div>
+    <div class="nav-links">
+      <a href="index.html">Work</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+    </div>
+
+    <div class="right">
+
+        <a href="https://www.instagram.com/wandile_010"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48"
+            style="fill:#FFFFFF;">
+            <path d="M 16.5 5 C 10.16639 5 5 10.16639 5 16.5 L 5 31.5 C 5 37.832757 10.166209 43 16.5 43 L 31.5 43 C 37.832938 43 43 37.832938 43 31.5 L 43 16.5 C 43 10.166209 37.832757 5 31.5 5 L 16.5 5 z M 16.5 8 L 31.5 8 C 36.211243 8 40 11.787791 40 16.5 L 40 31.5 C 40 36.211062 36.211062 40 31.5 40 L 16.5 40 C 11.787791 40 8 36.211243 8 31.5 L 8 16.5 C 8 11.78761 11.78761 8 16.5 8 z M 34 12 C 32.895 12 32 12.895 32 14 C 32 15.105 32.895 16 34 16 C 35.105 16 36 15.105 36 14 C 36 12.895 35.105 12 34 12 z M 24 14 C 18.495178 14 14 18.495178 14 24 C 14 29.504822 18.495178 34 24 34 C 29.504822 34 34 29.504822 34 24 C 34 18.495178 29.504822 14 24 14 z M 24 17 C 27.883178 17 31 20.116822 31 24 C 31 27.883178 27.883178 31 24 31 C 20.116822 31 17 27.883178 17 24 C 17 20.116822 20.116822 17 24 17 z"></path>
+            </svg></a>
+            <a href="https://www.x.com/@Rxch_010"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30"
+                style="fill:#FFFFFF;">
+                <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"></path>
+                </svg></a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                         <path d="M180-370v-0h600v60H180Zm0-160v-120h600v60H180Z"/>
+                    </svg>
+                </div></div>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <div class="top">
+    <a href="index.html">Work</a>
+    <a href="#">About</a>
+    <a href="#">Services</a></div>
+
+    
+  </div>
+<div class="hero">
+    <h3>Technology Focused And Creatively Driven</h3>
+</div>
+
+<div class="section">
+    <div class="vard">
+    <div class="year">Our Studio</div>
+    <div class="projects">
+      <div class="row">
+        
+        <div class="company" style="text-align: left;">Welcome to <span class="highlight">Agency Studio</span> — a creative hub where design, 
+            strategy, and technology come together. We help brands and businesses 
+            tell their stories through <span class="highlight">modern web design</span>, 
+            impactful digital experiences, and thoughtful branding.</div>
+       
+      </div>
+     
+      
+    </div>
+</div>
+</div>
+<!-- ✅ Keep only this Cookies Banner -->
+<div class="cookies-wrapper" id="cookiesWrapper">
+    <div class="cookies-container" id="cookies">
+      <div class="cookies-text">
+        We use cookies to improve your experience. By using our site, you accept our cookie policy.
+      </div>
+      <button class="cookies-btn" id="acceptCookies">Accept</button>
+    </div>
+  </div>
+  
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.getElementById("sidebar");
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+
+    themeToggle.addEventListener("click", () => {
+      if (body.classList.contains("light")) {
+        body.classList.remove("light");
+        body.classList.add("dark");
+      } else {
+        body.classList.remove("dark");
+        body.classList.add("light");
+      }
+    });
+  </script>
+   <script>
+    const cookiesWrapper = document.getElementById("cookiesWrapper");
+    const cookiesBox = document.getElementById("cookies");
+    const acceptBtn = document.getElementById("acceptCookies");
+
+    // Show only if not accepted
+    if (!localStorage.getItem("cookiesAccepted")) {
+      setTimeout(() => {
+        cookiesBox.classList.add("show");
+      }, 500);
+    } else {
+      cookiesWrapper.style.display = "none";
+    }
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      cookiesWrapper.style.display = "none"; // Hide completely
+    });
+  </script>
+      
+</body>
+</html>
