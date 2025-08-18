@@ -48,6 +48,15 @@
 <div class="hero">
     <h3>Technology Focused And Creatively Driven</h3>
 </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <h2>Let’s Talk</h2>
+      <p>This is your overlay content. You can put a form or message here.</p>
+    </div>
+  </div>
  
   <div class="section">
     <div class="vard">
@@ -172,43 +181,7 @@
       <button class="cookies-btn" id="acceptCookies">Accept</button>
     </div>
   </div>
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("sidebar");
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
-
-    themeToggle.addEventListener("click", () => {
-      if (body.classList.contains("light")) {
-        body.classList.remove("light");
-        body.classList.add("dark");
-      } else {
-        body.classList.remove("dark");
-        body.classList.add("light");
-      }
-    });
-
-    const cookiesWrapper = document.getElementById("cookiesWrapper");
-    const cookiesBox = document.getElementById("cookies");
-    const acceptBtn = document.getElementById("acceptCookies");
-
-    // Show only if not accepted
-    if (!localStorage.getItem("cookiesAccepted")) {
-      setTimeout(() => {
-        cookiesBox.classList.add("show");
-      }, 500);
-    } else {
-      cookiesWrapper.style.display = "none";
-    }
-
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookiesAccepted", "true");
-      cookiesWrapper.style.display = "none"; // Hide completely
-    });
-  </script>
+ 
+  <script src="index.js"></script>
 </body>
 </html>
