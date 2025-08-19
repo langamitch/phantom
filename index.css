@@ -441,15 +441,19 @@ input, select, textarea{
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   margin-bottom:20px;
+  font-family: 'Inter', sans-serif;
   
 }
 
 input::placeholder,
 textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 textarea{
-  min-height: 60px;
+  min-height: 120px;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -458,8 +462,8 @@ textarea{
   background-color: white;
   color: black;
   font-size:16px;
-  font-weight: 500;
-  padding: 10px 18px;
+  font-weight: 400;
+  padding: 10px 20px;
   border-radius: 30px;
 }
 
