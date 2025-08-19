@@ -98,3 +98,23 @@ document.getElementById("joinForm").addEventListener("submit", e => {
   saveForm("applications", data);
   e.target.reset();
 });
+
+const slider = document.getElementById("slider");
+const options = [
+  document.getElementById("opt0"),
+  document.getElementById("opt1"),
+  document.getElementById("opt2")
+];
+
+function updateOptions() {
+  options.forEach((opt, index) => {
+    if (index == slider.value) {
+      opt.classList.add("active");
+    } else {
+      opt.classList.remove("active");
+    }
+  });
+}
+
+slider.addEventListener("input", updateOptions);
+updateOptions(); // initialize
