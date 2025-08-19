@@ -142,6 +142,15 @@ flex-direction: column;
     display: none;
   }
 
+  .card1, .card2{
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+
+  }
+
   nav .talk{
     padding: 0.3rem .7rem;
     border-radius: 30px;
@@ -251,6 +260,10 @@ flex-direction: column;
   justify-content: space-between;
   border-bottom: 2px solid #333333;
   padding-bottom: 10px;
+}
+
+.row:hover{
+background-color: #333;
 }
 
 .title {
@@ -367,7 +380,7 @@ flex-direction: column;
   background: rgba(255, 255, 255, 0.15); /* translucent */
   backdrop-filter: blur(12px);           /* blur glass effect */
   -webkit-backdrop-filter: blur(12px);   /* Safari support */
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   padding: 24px 16px;

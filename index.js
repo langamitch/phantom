@@ -24,6 +24,7 @@ overlay.addEventListener("click", (e) => {
   if (e.target === overlay) overlay.style.display = "none";
 });
 
+
 // Handle card clicks
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", () => {
@@ -40,6 +41,13 @@ document.querySelectorAll("[data-back]").forEach(btn => {
     mainContent.style.display = "block";
   });
 });
+
+const menuToggle = document.getElementById("menu-toggle");
+const sidebar = document.getElementById("sidebar");
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+});
+
 
 // --- Firebase ---
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
