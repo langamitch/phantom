@@ -54,12 +54,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/fireba
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyANGUM4bivdY6ePSXNkga4t5YJhOz6_Naw",
+  authDomain: "flow-3f9aa.firebaseapp.com",
+  projectId: "flow-3f9aa",
+  storageBucket: "flow-3f9aa.firebasestorage.app",
+  messagingSenderId: "1097750329155",
+  appId: "1:1097750329155:web:7ea3d5e9a4838f55c361f6",
+  measurementId: "G-M7YW35V1J2"
 };
 
 const app = initializeApp(firebaseConfig);
